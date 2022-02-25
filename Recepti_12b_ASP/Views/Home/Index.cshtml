@@ -2,7 +2,70 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
+@*<div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+</div>*@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Boyan Binov">
+    <meta name="keywords" content="cooking, recipe, fast recipe">
+    <meta name="description" content="Cooking">
+    <title>Cooking website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/main.css" />
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-center">
+            <a asp-controller="Home" asp-action="Index">
+                <img src="./assets/logo_cooking.jpg" width="150" height="100" alt="cooking logo" />
+            </a>
+            <div class="nav-links">
+                <a asp-controller="Home" asp-action="Index" class="nav-link"> Home </a>
+                <a href="about.html" class="nav-link"> За нас </a>
+                <a href="recipes.html" class="nav-link"> Рецепти </a>
+            </div>
+            <a href="contact.html" class="btn"> Contact </a>
+        </div>
+        
+    </nav>
+    <main class="page">
+        <header class="hero">
+            <div class="hero-container">
+                    <img src="./assets/main.jpeg" class="hero-container" />
+                <div class="hero-text">
+                    <h1>Cooking</h1>
+                    <h4>Интересни рецепти</h4>
+                </div>
+            </div>
+        </header>
+        <section>
+            <div class="recipes-list">
+                <a href="single-recipe.html">
+                    <img src="./assets/recipes/paella.jpg"
+                         class="img recipe-img" alt="" />
+                    <h5>Испанска паеля</h5>
+                    <p>Подготовка : 25min | Готвене : 60min</p>
+                </a>
+                <a href="single-recipe.html">
+                    <img src="./assets/recipes/Vita_torta.jpg"
+                         class="img recipe-img"
+                         alt="" />
+                    <h5>"Вита" торта</h5>
+                    <p>Подготовка : 10min | Готвене : 70min</p>
+                </a>
+            </div>
+        </section>
+    </main>
+    @*<footer class="page-footer">
+        <p>Built by Boyan Binov</p>
+    </footer>*@
+</body>
+</html>
+
