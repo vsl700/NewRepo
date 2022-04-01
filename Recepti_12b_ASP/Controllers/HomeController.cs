@@ -31,9 +31,23 @@ namespace Recepti_12b_ASP.Controllers
             return View(_db.Recipes.Find(id));
         }
 
-        public IActionResult TOPSECRETPAGEEMPLOYEESONLY()
+        public IActionResult SecretPage()
         {
-            return View();
+            Recipe recipe = new Recipe();
+            return View(recipe);
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public IActionResult SecretPage(Recipe recipe)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Add(recipe);
+                _db.SaveChanges();
+            }
+
+            return View(recipe);
         }
 
         public IActionResult Privacy()

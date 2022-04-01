@@ -1,1 +1,47 @@
 ﻿@model Recipe;
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<link rel="stylesheet" href="~/css/main.css" />
+
+<nav class="navbar">
+    <div class="nav-center">
+        <a asp-controller="Home" asp-action="Index">
+            <img src="~/assets/logo_cooking.jpg" width="150" height="100" alt="cooking logo" />
+        </a>
+        <div class="nav-links">
+            <a asp-controller="Home" asp-action="Index" class="nav-link"> Home </a>
+            <a href="about.html" class="nav-link"> За нас </a>
+            <a href="recipes.html" class="nav-link"> Рецепти </a>
+        </div>
+        <a href="contact.html" class="btn"> Contact </a>
+    </div>
+</nav>
+<div class="row">
+    <div>
+        <img src="@Model.ImageURL" class="img recipe-img" alt="" />
+        <div><h4>НЕОБХОДИМИ ПРОДУКТИ</h4></div>
+        @foreach (string product in Model.RequiredProducts.Split(";"))
+        {
+            <p>@product</p>
+        }
+    </div>
+    <div>
+        <h4 class="needed-products h4">НАЧИН НА ПРИГОТВЯНЕ</h4>
+        @foreach (string paragraph in Model.CookDescription.Split(";"))
+        {
+            <p>@paragraph</p>
+        }
+        <div class="border">
+            <div class="clock-icon-center">
+                <i class="far fa-alarm-clock fa-1x"> Подготовка : @Model.PrepareMinutes min</i>
+                <i class="far fa-alarm-clock fa-1x"> Готвене : @Model.CookMinutes min</i>
+                <i class="far fa-alarm-clock fa-1x" id="totalMins"></i>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var prepare = @Model.PrepareMinutes;
+    var cook = @Model.CookMinutes;
+
+    document.getElementById("totalMins").innerHTML = " Общо : " + (prepare + cook) + " min";
+</script>

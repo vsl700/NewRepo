@@ -22,5 +22,11 @@ namespace Recepti_12b_ASP.Models
 
         [Required]
         public string CookDescription { get; set; }
+
+        [Required]
+        public int PrepareMinutes { get; set; }
+
+        [Required]
+        public int CookMinutes { get; set; }
     }
 }
